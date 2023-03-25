@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mit_inicio"
+        android:enabled="true"
+        android:icon="@drawable/casa"
+        android:title="Inicio"/>
+    <item
+        android:id="@+id/mit_mapa"
+        android:enabled="true"
+        android:icon="@drawable/maps"
+        android:title="Mapa"/>
+    <item
+        android:id="@+id/mit_favoritos"
+        android:enabled="true"
+        android:icon="@drawable/estrella"
+        android:title="Favoritos"/>
+    <item
+        android:id="@+id/mit_perfil"
+        android:enabled="true"
+        android:icon="@drawable/usuario"
+        android:title="Perfil"/>
+    <item
+        android:id="@+id/mit_salir"
+        android:enabled="true"
+        android:icon="@drawable/salir"
+        android:title="Salir"/>
+</menu>
