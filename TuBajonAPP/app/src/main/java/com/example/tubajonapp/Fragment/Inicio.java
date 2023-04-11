@@ -7,8 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.example.tubajonapp.Adaptadores.AdaptadorEstablecimientos;
+import com.example.tubajonapp.Clases.Establecimientos;
 import com.example.tubajonapp.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +30,14 @@ public class Inicio extends Fragment   {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ArrayList<Establecimientos> listEstablecimientos;
+    ListView lvEstablecimientos;
+    Integer[]ImgEstablecimientos={
+            R.drawable.example1,
+            R.drawable.example2,
+            R.drawable.example3,
+    };
 
     public Inicio() {
         // Required empty public constructor
@@ -55,12 +68,21 @@ public class Inicio extends Fragment   {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false);
+        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
+        listEstablecimientos=new ArrayList<Establecimientos>();
+        listEstablecimientos.add(new Establecimientos("Dennys ","SantaElena","Buenos desayunos"));
+        listEstablecimientos.add(new Establecimientos("Pupuseria Suiza ","Escalon","Buenos combos pupuseros"));
+        listEstablecimientos.add(new Establecimientos("Pizza Hut ","Mejicanos","Buenas Pizzas"));
+
+        AdaptadorEstablecimientos adaptador = new AdaptadorEstablecimientos(getContext(),listEstablecimientos,ImgEstablecimientos);
+        lvEstablecimientos = view.findViewById(R.id.lvEstablecimientos);
+        lvEstablecimientos.setAdapter(adaptador);
+        return view;
     }
 }
